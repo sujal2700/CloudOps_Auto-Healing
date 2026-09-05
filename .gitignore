@@ -1,0 +1,15 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+*.tfvars
+!example.tfvars
+
+# Ansible / SSH Keys
+*.pem
+hosts.ini
+
+# OS Files
+.DS_Store
+Thumbs.db
