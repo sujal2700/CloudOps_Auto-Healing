@@ -42,21 +42,21 @@
 
 ```text
 CloudOps_Auto-Healing/
-├── architecture_diagram.png   # System architecture and workflow diagram
+├── ansible/
+│   ├── inventory.ini         # Ansible target host configurations
+│   └── playbook.yml          # Nginx and configuration playbooks
 ├── lambda/
-│   └── healer.py              # Python serverless function handling instance recovery
+│   └── handler.py            # Python serverless remediation logic
 ├── terraform/
-│   ├── backend.tf             # Remote S3 state backend configuration
-│   ├── ec2.tf                 # Primary compute instance & user_data bootstrapping
-│   ├── iam.tf                 # Least-privilege IAM roles and policies for Lambda
-│   ├── lambda.tf              # Lambda function resource, packaging, & permissions
-│   ├── monitoring.tf          # CloudWatch metric alarms & SNS topic subscriptions
-│   ├── network.tf             # VPC, subnets, route tables, and internet gateways
-│   ├── security_groups.tf     # Firewall rules (SSH and HTTP ingress/egress)
-│   ├── variables.tf           # Input variables
-│   └── outputs.tf             # Infrastructure endpoints and IDs
-├── hosts.ini                  # Generated Ansible inventory
-└── README.md                  # Project documentation
+│   ├── backend.tf            # Remote S3 state backend configuration
+│   ├── cloudwatch.tf         # CloudWatch alarms and health checks
+│   ├── ec2.tf                # EC2 compute node & bootstrap configurations
+│   ├── lambda.tf             # Lambda resource deployment and packaging
+│   ├── lambda_iam.tf         # Least-privilege IAM roles and permissions
+│   ├── provider.tf           # AWS provider and region definitions
+│   └── vpc.tf                # Custom VPC, subnets, and internet gateway
+├── .gitignore                # Excluded build artifacts, state files, and keys
+└── README.md                 # Project documentation
 ```
 
 ## 🚀 Getting Started & Deployment
